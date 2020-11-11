@@ -1,3 +1,11 @@
 Get-Process
 $processes = Get-Process
 $processes
+
+Get-Process | Where-Object {$_.CPU -gt 5000} #find processes keeping the CPU busy
+Get-Process | Sort-Object WorkingSet64 -Descending #sort processes by memory usage
+#----------------------------------------
+# using variable
+$processes = Get-Process
+$processes | Where-Object {$_.CPU -gt 5000} #find processes keeping the CPU busy
+$processes | Sort-Object WorkingSet64 -Descending #sort processes by memory usage
